@@ -1,0 +1,76 @@
+body {
+  background-image: url(https://cdn.pixabay.com/photo/2015/04/23/22/00/tree-736885_960_720.jpg);
+    background-color: #f0f0f0;
+    font-family: Arial, sans-serif;
+    /* color: rgb(251, 250, 250); */
+    color:#f0f0f0;
+  }
+  
+  .center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+   
+  }
+  
+  
+  .input-field {
+    width: 300px;
+    padding: 10px;
+    margin: 10px 0;
+    border: none;
+    border-bottom: 2px solid #ccc;
+    font-size: 16px;
+    transition: border-color 0.3s;
+    border-radius: 10px;
+   
+  }
+  
+  .input-field:hover {
+    border-bottom: 2px solid #050dfb;
+    outline: none;
+  }
+  fieldset{
+    background-image: url(https://cdn.pixabay.com/photo/2015/04/23/22/00/tree-736885_960_720.jpg);
+    height: 513px;
+    width: 400px;
+    margin-top: 5px;
+    border-radius: 10px;
+    background-color: rgb(110, 116, 117);
+    box-shadow: 20px 20px 120px 50px;
+   
+  }
+ button {
+    width: 50px;
+    padding: 10px;
+    margin-top: 5px;
+    border: none;
+    background-color: #007BFF;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    
+  }
+ 
+  button:hover {
+    background-color: #0056b3;
+  }
+  .Two{
+    height: 45px;
+    width: 150px;
+    border-radius: 10px;
+    margin: 10px;
+  }
+  form{
+    box-shadow: 10px slateblue;
+  }
+  
+  /* div {
+    background-color: white;
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  } */
+  

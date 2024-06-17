@@ -1,0 +1,34 @@
+.App {
+  font-family: Arial, sans-serif;
+  background-color: #f4f4f4;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  width: 100%;
+  margin: 0;
+
+}
+/* .one{
+  padding: 10px;
+}
+.Deep{
+  height: 50px;
+  width: 80px;
+  margin-right: 250px;
+  border-radius: 50%;
+} */
+
+:root {
+  --footer-bg-color: #f1f1f1;
+  --footer-text-color: #000;
+  --button-bg-color: #007bff;
+  --button-text-color: #fff;
+}
+
+body.dark-mode {
+  --footer-bg-color: #333;
+  --footer-text-color: #fff;
+  --button-bg-color: #444;
+  --button-text-color: #fff;
+}
