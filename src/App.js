@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import TodoInput from './Components/TodoInput';
+import TodoInput from './Components/TodoInput/TodoInput';
 import RegistrationForm from './Components/Registration From/Form';
 import Home from './Components/Home/Home';
 import Login from './Components/Login/Login';
-import Table from './Components/Table';
+import Table from './Components/Table/Table';
 import Navbar from './Components/navbar/Navbar';
 import Footer from './Components/Footer/Footer';
 

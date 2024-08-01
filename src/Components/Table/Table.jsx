@@ -1,23 +1,25 @@
-import React, { useEffect, useState } from 'react';
-import './Table.css';
-import { useNavigate } from 'react-router-dom';
+import React, { useEffect, useState } from "react";
+import "./Table.css";
+import { useNavigate } from "react-router-dom";
 
 const TableComponent = () => {
   const [tableData, setTableData] = useState([]);
   const navigate = useNavigate();
   useEffect(() => {
-    const savedTableData = localStorage.getItem('tableData');
+    const savedTableData = localStorage.getItem("tableData");
     if (savedTableData) {
       setTableData(JSON.parse(savedTableData));
     }
   }, []);
   const handleBack = () => {
-         navigate('/TodoInput');
-       };
+    navigate("/TodoInput");
+  };
   return (
     <div className="table-container">
-     
-       <button onClick={handleBack} className='Deep'>  <i class="fa-solid fa-arrow-left"></i> </button>
+      <button onClick={handleBack} className="Deep">
+        {" "}
+        <i class="fa-solid fa-arrow-left"></i>{" "}
+      </button>
       <h1>Todo List</h1>
       {tableData.length > 0 ? (
         <table border="1" className="styled-table">

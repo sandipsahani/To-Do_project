@@ -1,7 +1,10 @@
-import React, { useState } from 'react';
-import './Login.css';
+import React, { useState } from "react";
+import "./Login.css";
+
 const Login = ({ onLogin }) => {
-  const [formData, setFormData] = useState({ email: '', password: '' });
+  const data = { email: "", password: "" };
+  const [formData, setFormData] = useState({ data });
+  const [error, setError] = useState("");
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -10,137 +13,61 @@ const Login = ({ onLogin }) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    const storedUser = JSON.parse(localStorage.getItem('registrationData'));
-    if (storedUser && storedUser.email === formData.email && storedUser.password === formData.password) {
-      alert('Login successful!');
+    const storedUser = JSON.parse(localStorage.getItem("registrationData"));
+
+    if (
+      storedUser &&
+      storedUser.email === formData.email &&
+      storedUser.password === formData.password
+    ) {
+      alert("Login successful!");
       onLogin();
-      window.location.href = '/TodoInput';
+      window.location.href = "/TodoInput";
     } else {
-      alert('Invalid credentials');
+      setError("Invalid credentials");
     }
   };
 
-  
-
   return (
     <center>
-    <fieldset >
-     
-    <form onSubmit={handleSubmit}>
-    <h2 className="form-title">Login Form</h2>
-      <div className='label'>
-        <label >Email:</label> 
-        <input type="email" name="email" value={formData.email} onChange={handleChange} required  className="input-field" placeholder='Enter your Email ' />
-      </div>
-      <div className='label'>
-        <label>Password:</label>
-        <input type="password" name="password" value={formData.password} onChange={handleChange} required  className="input-field" placeholder='Enter your password'/>
-      </div>
-      <button type="submit"  className="Two" >Login</button>
-    </form>
-  <div></div>
-    </fieldset>
+      <fieldset className="border p-4 rounded-lg max-w-md mx-auto">
+        <form onSubmit={handleSubmit}>
+          <h2 className="form-title text-2xl font-bold mb-4">Login Form</h2>
+          <div className="label mb-4">
+            <label className="block text-sm font-medium mb-2">Email:</label>
+            <input
+              type="email"
+              name="email"
+              value={formData.email}
+              onChange={handleChange}
+              required
+              className="input-field w-full p-2 border rounded"
+              placeholder="Enter your Email"
+            />
+          </div>
+          <div className="label mb-4">
+            <label className="block text-sm font-medium mb-2">Password:</label>
+            <input
+              type="password"
+              name="password"
+              value={formData.password}
+              onChange={handleChange}
+              required
+              className="input-field w-full p-2 border rounded"
+              placeholder="Enter your password"
+            />
+          </div>
+          {error && <div className="text-red-500 mb-4">{error}</div>}
+          <button
+            type="submit"
+            className="Two bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-600 transition duration-300"
+          >
+            Login
+          </button>
+        </form>
+      </fieldset>
     </center>
   );
-  
 };
 
 export default Login;
-
-// import React, { useState } from 'react';
-// import { useNavigate } from "react-router-dom";
-// import './Login.css';
-
-// const Login = () => {
-//   const [email, setEmail] = useState('');
-//   const [password, setPassword] = useState('');
-//   const navigate = useNavigate();
-
-//   const handleSubmit = (e) => {
-//     e.preventDefault();
-   
-//      const registrationData = JSON.parse(localStorage.getItem('registrationData'));
-
-//     if (registrationData && email === registrationData.email && password === registrationData.password) {
-//       alert('Login successful!');
-//       navigate("/TodoInput"); 
-//     } else {
-//       alert('Invalid email or password');
-//     }
-//   }
-
-//   return (
-//     <fieldset>
-//       <center>
-       
-//         <h2>Login Form</h2>
-//         <div>
-//           <input
-//             type="email"
-//             name="email"
-//             id="email"
-//             className="input-field"
-//             placeholder="Enter Email"
-//             value={email}
-//             onChange={(e) => setEmail(e.target.value)}
-//           />
-//           <br />
-//           <input
-//             type="password"
-//             name="password"
-//             id="password"
-//             className="input-field"
-//             placeholder="Enter Password"
-//             value={password}
-//             onChange={(e) => setPassword(e.target.value)}
-//           />
-//           <br />
-//           <button className="Two"  onClick={handleSubmit}>Submit</button>
-//         </div>
-   
-//       </center>
-//     </fieldset>
-//   );
-// };
-
-// export default Login;
-// import React, { useState } from 'react';
-
-// const Login = ({ onLogin }) => {
-//   const [formData, setFormData] = useState({ email: '', password: '' });
-
-//   const handleChange = (e) => {
-//     const { name, value } = e.target;
-//     setFormData({ ...formData, [name]: value });
-//   };
-
-//   const handleSubmit = (e) => {
-//     e.preventDefault();
-//     const storedUser = JSON.parse(localStorage.getItem('user'));
-//     if (storedUser && storedUser.email === formData.email && storedUser.password === formData.password) {
-//       alert('Login successful!');
-//       onLogin();
-//       window.location.href = '/TodoInput';
-//     } else {
-//       alert('Invalid credentials');
-//     }
-//   };
-
-//   return (
-//     <form onSubmit={handleSubmit}>
-//       <div>
-//         <label>Email:</label>
-//         <input type="email" name="email" value={formData.email} onChange={handleChange} required />
-//       </div>
-//       <div>
-//         <label>Password:</label>
-//         <input type="password" name="password" value={formData.password} onChange={handleChange} required />
-//       </div>
-//       <button type="submit">Login</button>
-//     </form>
-//   );
-// };
-
-// export default Login;
-
-

@@ -1,8 +1,6 @@
 import React from 'react';
 import './Input.css';
 
-
-
 const Input = ({ label, type, name, value, onChange }) => (
   <div className="input-group" >
     <label className="input-label">{label}</label>
