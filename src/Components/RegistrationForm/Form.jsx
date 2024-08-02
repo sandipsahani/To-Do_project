@@ -1,6 +1,5 @@
-import React, { useState } from "react";
-
-import InputField from "./Input";
+import React, { useState, useEffect } from "react";
+import InputField from "../shared/Input";
 
 const Form = () => {
   const [formData, setFormData] = useState({
@@ -9,7 +8,11 @@ const Form = () => {
     phone: "",
     age: "",
   });
-
+  
+  useEffect(()=>{
+    localStorage.setItem("registrationData", JSON.stringify(formData))
+  },[formData])
+  
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData({
@@ -20,9 +23,10 @@ const Form = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    localStorage.setItem("registrationData", JSON.stringify(formData));
+    
+   
     alert("Registration successful! Please log in.");
-    window.location.href = "/Login";
+    window.location.href = "/Login"; 
   };
 
   return (

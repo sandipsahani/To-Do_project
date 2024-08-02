@@ -1,12 +1,12 @@
-import React, { useState, useRef } from 'react';
-import { useNavigate } from 'react-router-dom';
-import './TodoInput.css';
+import React, { useState, useRef } from "react";
+import { useNavigate } from "react-router-dom";
+import "./TodoInput.css";
 
 const Form = () => {
   const textRef = useRef();
   const dateRef = useRef();
   const [tableData, setTableData] = useState(() => {
-    const savedData = localStorage.getItem('tableData');
+    const savedData = localStorage.getItem("tableData");
     return savedData ? JSON.parse(savedData) : [];
   });
 
@@ -20,10 +20,10 @@ const Form = () => {
     };
     const updatedTableData = [...tableData, newTodo];
     setTableData(updatedTableData);
-    localStorage.setItem('tableData', JSON.stringify(updatedTableData));
-    textRef.current.value = '';
-    dateRef.current.value = '';
-    navigate('/table');
+    localStorage.setItem("tableData", JSON.stringify(updatedTableData));
+    textRef.current.value = "";
+    dateRef.current.value = "";
+    navigate("/table");
   };
 
   return (
@@ -33,13 +33,15 @@ const Form = () => {
         <form onSubmit={handleSubmit}>
           <div>
             <label>Text:</label>
-            <input type="text" ref={textRef} placeholder='Enter Your Text' />
+            <input type="text" ref={textRef} placeholder="Enter Your Text" />
           </div>
           <div>
             <label>Date:</label>
-            <input type="date" ref={dateRef} placeholder='Enter Your Date' />
+            <input type="date" ref={dateRef} placeholder="Enter Your Date" />
           </div>
-          <button type="submit" className='submit-button'>Add</button>
+          <button type="submit" className="submit-button">
+            Add
+          </button>
         </form>
       </div>
     </center>

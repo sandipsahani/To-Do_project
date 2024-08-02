@@ -1,10 +1,19 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "./Login.css";
+import Input from "../shared/Input";
 
 const Login = ({ onLogin }) => {
-  const data = { email: "", password: "" };
-  const [formData, setFormData] = useState({ data });
+  const [formData, setFormData] = useState({ email: "", password: "" });
+  const [storedUser, setStoredUser] = useState(null);
   const [error, setError] = useState("");
+
+  useEffect(() => {
+    const user = JSON.parse(localStorage.getItem("registrationData"));
+    if (user) {
+      setStoredUser(user);
+      console.log("Registration data loaded", user);
+    }
+  }, []);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -13,7 +22,6 @@ const Login = ({ onLogin }) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    const storedUser = JSON.parse(localStorage.getItem("registrationData"));
 
     if (
       storedUser &&
@@ -24,7 +32,7 @@ const Login = ({ onLogin }) => {
       onLogin();
       window.location.href = "/TodoInput";
     } else {
-      setError("Invalid credentials");
+      setError("Invalid email or password");
     }
   };
 
@@ -34,8 +42,8 @@ const Login = ({ onLogin }) => {
         <form onSubmit={handleSubmit}>
           <h2 className="form-title text-2xl font-bold mb-4">Login Form</h2>
           <div className="label mb-4">
-            <label className="block text-sm font-medium mb-2">Email:</label>
             <input
+              label="Email:"
               type="email"
               name="email"
               value={formData.email}
@@ -46,8 +54,8 @@ const Login = ({ onLogin }) => {
             />
           </div>
           <div className="label mb-4">
-            <label className="block text-sm font-medium mb-2">Password:</label>
             <input
+              label="Password:"
               type="password"
               name="password"
               value={formData.password}

@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import TodoInput from './Components/TodoInput/TodoInput';
-import RegistrationForm from './Components/Registration From/Form';
+import RegistrationForm from './Components/RegistrationForm/Form';
 import Home from './Components/Home/Home';
 import Login from './Components/Login/Login';
 import Table from './Components/Table/Table';
